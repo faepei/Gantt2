@@ -1,495 +1,1200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Carta Gantt PEI UAH 2026-2030</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-<div id="root"></div>
-<script type="text/babel" data-presets="react">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelo actualización PEI Institucional UAH 2026-2030</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --brand: #123056;
+      --brand2: #0f5b6f;
+      --accent: #d97706;
+      --accent-soft: #fff4e8;
+      --shadow: 0 12px 30px rgba(18, 48, 86, 0.08);
+      --radius: 18px;
 
+      --c1-bg: #fdf2f2;
+      --c1-text: #9b1c1c;
 
-function GanttPEIUAHApp() {
-  const timeline = [
-    { label: "MAR", year: "2026" },
-    { label: "ABR", year: "2026" },
-    { label: "MAY", year: "2026" },
-    { label: "JUN", year: "2026" },
-    { label: "JUL", year: "2026" },
-    { label: "AGO", year: "2026" },
-    { label: "SEPT", year: "2026" },
-    { label: "OCT", year: "2026" },
-    { label: "NOV", year: "2026" },
-    { label: "DIC", year: "2026" },
-    { label: "2027", year: "2027" },
-    { label: "2028", year: "2028" },
-    { label: "2029", year: "2029" },
-    { label: "2030", year: "2030" },
-  ];
+      --c2-bg: #eff6ff;
+      --c2-text: #1d4ed8;
 
-  const rows = [
-    { phase: "1.- DISEÑO DEL PEI INSTITUCIONAL", isPhase: true },
-    {
-      task: "Levantamiento de información para las facultades",
-      detail:
-        "Facultades pueden solicitar información adicional al kit de planificación institucional. Esto debe ser entregado a la facultad desde DGD.",
-      type: "Trabajo interno Equipo DGD",
-      product: "Información adicional",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants:
-        "Unidades centrales (DDPU, VcM, Dirección de Investigación, Finanzas, Operaciones, Cooperación)",
-      marks: ["", "", "X", "X", "", "", "", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Preparación de kit planificación",
-      detail:
-        "Elaboración de propuesta de indicadores y metas institucionales. Elaboración de matriz de tributación de planes de facultad vigentes al PEI. Preparación de benchmarks de indicadores clave. Formato y metodología para talleres de trabajo en facultades.",
-      type: "Trabajo interno Equipo DGD",
-      product: "Kit de planificación",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants:
-        "Unidades centrales (DDPU, VcM, Dirección de Investigación, Finanzas, Operaciones, Cooperación)",
-      marks: ["", "", "X", "X", "X", "", "", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Definir metodología de seguimiento y control del PEI",
-      detail: "Trabajo interno para definir metodología de seguimiento y control del PEI.",
-      type: "Trabajo interno Equipo DGD",
-      product: "Metodología del seguimiento y control del PEI",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "DAI, Dirección de Planificación",
-      marks: ["", "", "X", "X", "", "", "", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Validación y ajuste de indicadores y metas institucionales",
-      detail:
-        "Discusión de propuesta de indicadores y metas institucionales elaborados por el equipo DGD.",
-      type: "Trabajo equipos DGD - Rectoría",
-      product: "Indicadores, metas institucionales y planes de acción del PEI Institucional",
-      owners: "Comité de Rectoría",
-      participants: "DGD",
-      marks: ["", "", "", "X", "X", "X", "", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Validación final PEI 2030",
-      detail:
-        "Agenda del Consejo Académico: 29 abril, líneas de acción y estrategias del PEI; 27 mayo, validación de indicadores y metas.",
-      type: "Sesiones de validación",
-      product: "PEI Central validado",
-      owners: "Consejo Académico",
-      participants: "DGD",
-      marks: ["", "", "", "", "", "X", "", "", "", "", "", "", "", ""],
-    },
+      --c3-bg: #f0fdf4;
+      --c3-text: #166534;
 
-    { phase: "2.- DISEÑO DE LOS PLANES DE FACULTAD", isPhase: true },
-    {
-      task: "Presentación rediseño PEI UAH y plan de trabajo con las facultades (Kick-off)",
-      detail:
-        "Presentación de metodologías de trabajo. Se propone reunión online donde se citarán a todas las facultades.",
-      type: "Reunión informativa para facultades",
-      product: "PPT del Kick off",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "Todas las facultades",
-      marks: ["", "", "", "", "", "X", "", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Taller N° 1 plan de facultad",
-      detail:
-        "Discusión y preparación de entregable 1: diagnóstico, prioridades y apuestas estratégicas.",
-      type: "Reunión de trabajo con facultades",
-      product: "Entrega de kit de planificación",
-      owners: "Consejo de Facultad",
-      participants: "DGD",
-      marks: ["", "", "", "", "", "", "X", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Trabajo interno de facultad",
-      detail:
-        "Trabajo autónomo e interno por cada facultad para la revisión detallada de sus respectivos PEI, focos y prioridades.",
-      type: "Trabajo interno de facultad",
-      product: "Borrador del entregable 1",
-      owners: "Decanatura",
-      participants: "Abierto a la convocatoria de la Facultad",
-      marks: ["", "", "", "", "", "", "X", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Taller N° 2 plan de facultad",
-      detail:
-        "Discusión y preparación de entregable 1: alineamiento con Plan Institucional, objetivos y acciones comprometidas.",
-      type: "Reunión de trabajo con facultades",
-      product: "Entregable 1",
-      owners: "Consejo de Facultad",
-      participants: "DGD",
-      marks: ["", "", "", "", "", "", "X", "", "", "", "", "", "", ""],
-    },
-    {
-      task: "Formulación Técnica del Plan de Facultad",
-      detail: "Preparación de entregable 2: Plan de Facultad.",
-      type: "Trabajo interno colaborativo de facultad",
-      product: "Borrador del plan de facultad: matriz de estrategia, KPI y meta institucional",
-      owners: "Comité Técnico de Facultad / Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "X", "X", "", "", "", "", "", ""],
-    },
-    {
-      task: "Valorización Preliminar del Plan de Facultad",
-      detail: "Valorización del Plan de Facultad.",
-      type: "Trabajo interno de facultad",
-      product: "Plan de facultad valorizado",
-      owners: "Dirección Administrativa Facultad / VRAF",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "X", "X", "", "", "", "", "", ""],
-    },
-    {
-      task: "Validación de la propuesta de Plan de Facultad",
-      detail:
-        "Revisión del contenido del plan considerando su coherencia interna, prioridades y principales líneas de acción incluyendo su costeo.",
-      type: "Sesiones de validación",
-      product: "Plan de facultad aprobado",
-      owners: "Consejo de Facultad",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "X", "", "", "", "", "", ""],
-    },
-    {
-      task: "Análisis agregado de las propuestas de planes de facultad",
-      detail:
-        "Revisión comparada de los planes de facultad para verificar articulación con el Plan Institucional, consistencia entre objetivos, indicadores y metas, e identificación de ajustes requeridos.",
-      type: "Trabajo interno DGD",
-      product: "Entregable 3",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "X", "", "", "", "", ""],
-    },
-    {
-      task: "Revisión de factibilidad presupuestaria y asignación preliminar de recursos",
-      detail:
-        "Revisión técnica del costeo presentado por las facultades y contraste entre requerimientos financieros y disponibilidad de recursos.",
-      type: "Sesiones de revisión",
-      product: "Plan de Facultad revisado",
-      owners: "Vicerrectoría de Administración y Finanzas",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "X", "", "", "", "", ""],
-    },
-    {
-      task: "Consolidación de observaciones y ajuste final de planes de facultad",
-      detail: "Validación de coherencia institucional y priorización.",
-      type: "Sesiones de revisión",
-      product: "Plan de Facultad validado",
-      owners: "Comité de Rectoría",
-      participants: "",
-      marks: ["", "", "", "", "", "", "", "", "", "X", "", "", "", ""],
-    },
-    {
-      task: "Validación y ajuste de Plan de Facultad",
-      detail: "Ajuste del plan en base a la factibilidad técnica y económica.",
-      type: "Sesiones de revisión",
-      product: "Plan de Facultad validado",
-      owners: "DGD - CAE - Decanatura",
-      participants: "VRAF",
-      marks: ["", "", "", "", "", "", "", "", "", "X", "", "", "", ""],
-    },
-    {
-      task: "Validación Institucional de los Planes de Facultad",
-      detail: "Validación de consistencia institucional.",
-      type: "Sesiones de revisión",
-      product: "Plan de Facultad validado",
-      owners: "Consejo Académico",
-      participants: "Decanaturas / DGD",
-      marks: ["", "", "", "", "", "", "", "", "", "X", "", "", "", ""],
-    },
-    {
-      task: "Validación del Directorio",
-      detail: "Validación de consistencia institucional.",
-      type: "Sesiones de revisión",
-      product: "Plan de Facultad validado",
-      owners: "Directorio",
-      participants: "DGD",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "", "", ""],
-    },
-    {
-      task: "Presentación del PEI Institucional y Planes de Facultad",
-      detail: "",
-      type: "",
-      product: "",
-      owners: "Consejo Académico",
-      participants: "DGD",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "", "", ""],
-    },
-    {
-      task: "Difusión del PEI Institucional y Planes de Facultad",
-      detail: "Difusión del PEI Institucional y de los Planes de Facultad.",
-      type: "Difusión",
-      product: "PEI y Planes de Facultades difundidos",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "", "", ""],
-    },
+      --c4-bg: #fff7ed;
+      --c4-text: #c2410c;
 
-    { phase: "3.- IMPLEMENTACIÓN Y SEGUIMIENTO", isPhase: true },
-    {
-      task: "Implementación de las líneas de acción institucionales y de facultades",
-      detail:
-        "Las facultades dan curso a las líneas de acción definidas en sus planes. DGD apoya con orientaciones para la implementación.",
-      type: "Implementación y acompañamiento",
-      product: "Reuniones de acompañamiento",
-      owners: "Facultad / Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"],
-    },
-    {
-      task: "Seguimiento y control del avance de las líneas de acción",
-      detail: "Seguimiento al avance de las líneas de acción.",
-      type: "Seguimiento",
-      product: "Seguimiento",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"],
-    },
-    {
-      task: "Seguimiento de indicadores intermedios",
-      detail: "Seguimiento de indicadores intermedios.",
-      type: "Seguimiento",
-      product: "Seguimiento",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"],
-    },
-    {
-      task: "Presentar avances sobre avance de indicadores intermedios",
-      detail: "Presentación de avances en la estrategia de indicadores intermedios.",
-      type: "Presentación",
-      product: "PPT y análisis del avance",
-      owners: "Coordinación Académica Estratégica / Consejo de Facultad",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"],
-    },
-    {
-      task: "Seguimiento de indicadores estratégicos",
-      detail: "Se realiza seguimiento y se informa a las contrapartes.",
-      type: "Seguimiento",
-      product: "PPT y análisis del avance",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"],
-    },
-    {
-      task: "Presentar resultados del avance de la estrategia del año",
-      detail: "Presentación anual sobre los avances de la estrategia durante el año.",
-      type: "Presentación",
-      product: "PPT y análisis del avance general del año",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"],
-    },
-    {
-      task: "Evaluación intermedia 2028",
-      detail:
-        "Elaboración de informe de evaluación intermedia con estatus general y específico de puntos críticos.",
-      type: "Evaluación intermedia",
-      product: "Informe intermedio",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "", "X", "", ""],
-    },
-    {
-      task: "Ajustes a la estrategia",
-      detail: "Ajustes en caso de existir luego de la evaluación.",
-      type: "Ajustes",
-      product: "Acta",
-      owners: "Comité de Rectoría",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "", "X", "", ""],
-    },
-    {
-      task: "Cierre del PEI UAH 2030",
-      detail:
-        "Al cierre del período se contempla la elaboración del informe ejecutivo de cierre del PEI.",
-      type: "Cierre",
-      product: "Informe Ejecutivo de Cierre del PEI",
-      owners: "Dirección de Gestión y Desarrollo",
-      participants: "No aplica",
-      marks: ["", "", "", "", "", "", "", "", "", "", "", "", "", "X"],
-    },
-  ];
+      --c5-bg: #faf5ff;
+      --c5-text: #7e22ce;
 
-  const [search, setSearch] = React.useState("");
+      --c6-bg: #f1f5f9;
+      --c6-text: #334155;
 
-  const filteredRows = rows.filter((row) => {
-    if (row.isPhase) return true;
-    const q = search.trim().toLowerCase();
-    if (!q) return true;
-    const text = [row.task, row.detail, row.type, row.product, row.owners, row.participants]
-      .join(" ")
-      .toLowerCase();
-    return text.includes(q);
-  });
-
-  const visibleRows = [];
-  for (let i = 0; i < filteredRows.length; i += 1) {
-    const row = filteredRows[i];
-    if (row.isPhase) {
-      const nextNonPhase = filteredRows.slice(i + 1).find((r) => !r.isPhase);
-      if (nextNonPhase) visibleRows.push(row);
-    } else {
-      visibleRows.push(row);
+      --phase: #eef5f0;
+      --phase-text: #234b30;
     }
-  }
 
-  return (
-    <div className="min-h-screen bg-[#f5f6f8] text-slate-900">
-      <div className="bg-[#0f5b6f] px-6 py-5 text-white shadow-sm">
-        <div className="mx-auto max-w-[2600px]">
-          <h1 className="text-[30px] font-bold leading-tight">
-            Actualización Plan Estratégico Institucional (PEI) — UAH 2026
-          </h1>
-          <p className="mt-1 text-white/80">Modelo actualización PEI UAH 2026-2030 para facultades</p>
-        </div>
-      </div>
+    * { box-sizing: border-box; }
 
-      <div className="mx-auto max-w-[2600px] p-5">
-        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar por tarea, detalle, tipo, producto, responsable o participante"
-            className="w-full max-w-[540px] rounded-xl border border-slate-300 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-orange-200"
-          />
-        </div>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+      color: var(--text);
+    }
 
-        <div className="overflow-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <table className="min-w-[3000px] border-collapse text-[12px]">
-            <thead>
-              <tr>
-                <th
-                  rowSpan={2}
-                  className="sticky left-0 z-30 min-w-[300px] border border-slate-300 bg-[#142b57] px-4 py-3 text-left font-bold text-white"
-                >
-                  Nombre de la tarea / actividad
-                </th>
-                <th
-                  rowSpan={2}
-                  className="sticky left-[300px] z-30 min-w-[440px] border border-slate-300 bg-[#142b57] px-4 py-3 text-left font-bold text-white"
-                >
-                  Detalle
-                </th>
-                <th
-                  rowSpan={2}
-                  className="sticky left-[740px] z-30 min-w-[220px] border border-slate-300 bg-[#142b57] px-4 py-3 text-left font-bold text-white"
-                >
-                  Tipo de actividad
-                </th>
-                <th
-                  rowSpan={2}
-                  className="sticky left-[960px] z-30 min-w-[220px] border border-slate-300 bg-[#142b57] px-4 py-3 text-left font-bold text-white"
-                >
-                  Producto esperado
-                </th>
-                <th
-                  rowSpan={2}
-                  className="sticky left-[1180px] z-30 min-w-[220px] border border-slate-300 bg-[#142b57] px-4 py-3 text-left font-bold text-white"
-                >
-                  Responsables
-                </th>
-                <th
-                  rowSpan={2}
-                  className="sticky left-[1400px] z-30 min-w-[220px] border border-slate-300 bg-[#142b57] px-4 py-3 text-left font-bold text-white"
-                >
-                  Participantes
-                </th>
-                <th colSpan={10} className="border border-slate-300 bg-[#142b57] px-2 py-3 text-center font-bold text-white">
-                  2026
-                </th>
-                <th colSpan={1} className="border border-slate-300 bg-[#142b57] px-2 py-3 text-center font-bold text-white">
-                  2027
-                </th>
-                <th colSpan={1} className="border border-slate-300 bg-[#142b57] px-2 py-3 text-center font-bold text-white">
-                  2028
-                </th>
-                <th colSpan={1} className="border border-slate-300 bg-[#142b57] px-2 py-3 text-center font-bold text-white">
-                  2029
-                </th>
-                <th colSpan={1} className="border border-slate-300 bg-[#142b57] px-2 py-3 text-center font-bold text-white">
-                  2030
-                </th>
-              </tr>
-              <tr>
-                {timeline.map((item, index) => (
-                  <th
-                    key={`${item.year}-${item.label}-${index}`}
-                    className="min-w-[92px] border border-slate-300 bg-[#21406f] px-2 py-3 text-center text-xs font-semibold tracking-wide text-white"
-                  >
-                    {item.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {visibleRows.map((row, index) => {
-                if (row.isPhase) {
-                  return (
-                    <tr key={`phase-${index}`}>
-                      <td
-                        colSpan={20}
-                        className="sticky left-0 z-20 border border-slate-300 bg-[#eaf3eb] px-4 py-3 font-bold text-slate-800"
-                      >
-                        {row.phase}
-                      </td>
-                    </tr>
-                  );
-                }
+    .hero {
+      background: linear-gradient(135deg, var(--brand2) 0%, var(--brand) 100%);
+      color: white;
+      padding: 30px 24px 38px;
+    }
 
-                return (
-                  <tr key={`task-${index}`}>
-                    <td className="sticky left-0 z-10 min-w-[300px] border border-slate-200 bg-white px-3 py-3 align-top leading-relaxed">
-                      {row.task}
-                    </td>
-                    <td className="sticky left-[300px] z-10 min-w-[440px] border border-slate-200 bg-white px-3 py-3 align-top leading-relaxed">
-                      {row.detail}
-                    </td>
-                    <td className="sticky left-[740px] z-10 min-w-[220px] border border-slate-200 bg-white px-3 py-3 align-top leading-relaxed">
-                      {row.type}
-                    </td>
-                    <td className="sticky left-[960px] z-10 min-w-[220px] border border-slate-200 bg-white px-3 py-3 align-top leading-relaxed">
-                      {row.product}
-                    </td>
-                    <td className="sticky left-[1180px] z-10 min-w-[220px] border border-slate-200 bg-white px-3 py-3 align-top leading-relaxed">
-                      {row.owners}
-                    </td>
-                    <td className="sticky left-[1400px] z-10 min-w-[220px] border border-slate-200 bg-white px-3 py-3 align-top leading-relaxed">
-                      {row.participants}
-                    </td>
-                    {row.marks.map((mark, markIndex) => (
-                      <td
-                        key={`mark-${index}-${markIndex}`}
-                        className={`min-w-[92px] border border-slate-200 px-2 py-3 text-center ${
-                          markIndex >= 10 ? "bg-[#fff8f2]" : "bg-white"
-                        }`}
-                      >
-                        {mark ? (
-                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-orange-100 font-bold text-orange-700">
-                            {mark}
-                          </span>
-                        ) : null}
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
+    .hero-inner {
+      max-width: 1700px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.84);
+      font-size: 15px;
+    }
+
+    .badge {
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.12);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .page {
+      max-width: 1700px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: -28px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 18px;
+    }
+
+    .card .label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .card .value {
+      margin-top: 8px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .section-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .section-head {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .section-sub {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ROADMAP PREMIUM */
+    .roadmap-wrap {
+      padding: 26px 22px 24px;
+      overflow-x: auto;
+    }
+
+    .roadmap {
+      min-width: 1320px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(190px, 1fr));
+      gap: 16px;
+      align-items: center;
+      position: relative;
+    }
+
+    .roadmap-step {
+      display: grid;
+      grid-template-columns: 1fr 30px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .roadmap-step.last {
+      grid-template-columns: 1fr;
+    }
+
+    .roadmap-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #edf1f5;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      transition: transform .22s ease, box-shadow .22s ease;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .roadmap-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.58);
+      backdrop-filter: blur(6px);
+    }
+
+    .roadmap-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 24px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+
+    .roadmap-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 6px 14px rgba(0,0,0,.06);
+      font-size: 25px;
+    }
+
+    .roadmap-owner {
+      padding: 12px 14px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #475467;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      min-height: 42px;
+    }
+
+    .roadmap-activity {
+      padding: 12px 14px 18px;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.15;
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .roadmap-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #e7ecf2;
+      color: #7a8aa0;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .roadmap-c1 { background: linear-gradient(180deg, var(--c1-bg) 0%, #fff 100%); }
+    .roadmap-c1 .roadmap-activity, .roadmap-c1 .roadmap-number { color: var(--c1-text); }
+
+    .roadmap-c2 { background: linear-gradient(180deg, var(--c2-bg) 0%, #fff 100%); }
+    .roadmap-c2 .roadmap-activity, .roadmap-c2 .roadmap-number { color: var(--c2-text); }
+
+    .roadmap-c3 { background: linear-gradient(180deg, var(--c3-bg) 0%, #fff 100%); }
+    .roadmap-c3 .roadmap-activity, .roadmap-c3 .roadmap-number { color: var(--c3-text); }
+
+    .roadmap-c4 { background: linear-gradient(180deg, var(--c4-bg) 0%, #fff 100%); }
+    .roadmap-c4 .roadmap-activity, .roadmap-c4 .roadmap-number { color: var(--c4-text); }
+
+    .roadmap-c5 { background: linear-gradient(180deg, var(--c5-bg) 0%, #fff 100%); }
+    .roadmap-c5 .roadmap-activity, .roadmap-c5 .roadmap-number { color: var(--c5-text); }
+
+    .roadmap-c6 { background: linear-gradient(180deg, var(--c6-bg) 0%, #fff 100%); }
+    .roadmap-c6 .roadmap-activity, .roadmap-c6 .roadmap-number { color: var(--c6-text); }
+
+    .roadmap-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 22px 22px;
+    }
+
+    .legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #ebeef3;
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    /* GANTT */
+.filters-top-card,
+.mainpanel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<GanttPEIUAHApp />);
+.filters-top-card {
+  margin-bottom: 14px;
+}
+
+.filters-top {
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 180px;
+  gap: 10px;
+  align-items: center;
+}
+
+.summary-inline {
+  padding: 0 18px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.fullwidth-panel {
+  width: 100%;
+}
+
+    .panel-head {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg,#fff 0%,#fbfcfe 100%);
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .panel-sub {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .filters {
+      padding: 14px 18px 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    input, select, button {
+      width: 100%;
+      border: 1px solid #d6dde8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      background: white;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #efb46b;
+      box-shadow: 0 0 0 4px rgba(217,119,6,.12);
+    }
+
+    button {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .summary-list {
+      padding: 0 18px 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .summary-item {
+      border: 1px solid #eef1f5;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fbfcfe;
+    }
+
+    .summary-item .k {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .summary-item .v {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      max-height: 78vh;
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 1600px;
+      width: max-content;
+      font-size: 12px;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      background: var(--brand);
+      color: white;
+      padding: 11px 8px;
+      border-right: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    thead tr.months th {
+      background: #21446d;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    tbody td {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: white;
+      padding: 10px 10px;
+      vertical-align: middle;
+    }
+
+    tbody tr:hover td { background: #fcfdff; }
+
+    .phase-row td {
+      background: var(--phase) !important;
+      color: var(--phase-text);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 12px 14px;
+    }
+
+    .sticky {
+      position: sticky;
+      z-index: 5;
+      background: inherit;
+    }
+
+    .sticky-head { z-index: 10 !important; }
+
+    .col-a { left: 0; min-width: 440px; max-width: 440px; }
+    .col-b { left: 440px; min-width: 240px; max-width: 240px; }
+
+    .activity {
+      font-weight: 700;
+      color: #243247;
+      line-height: 1.35;
+    }
+
+    .owner-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f7f8fb;
+      border: 1px solid #eceff4;
+      color: #445066;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .time-col {
+      min-width: 78px;
+      width: 78px;
+      padding: 0;
+      position: relative;
+      background: linear-gradient(180deg,#fff 0%,#fbfcfe 100%);
+      text-align: center;
+    }
+
+    .year-end {
+      background: linear-gradient(180deg,#fff9f3 0%,#fff6ed 100%);
+    }
+
+    .mark-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin: 10px auto;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .empty {
+      display: none;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+    }
+@media (max-width: 1200px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-top {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap {
+    min-width: 100%;
+  }
+
+  .roadmap-step,
+  .roadmap-step.last {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-arrow {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Modelo actualización PEI Institucional UAH 2026-2030</h1>
+        <p></p>
+      </div>
+      <div class="badge">Universidad Alberto Hurtado</div>
+    </div>
+  </section>
+
+  <main class="page">
+    <section class="stats">
+      <div class="card"><div class="label">Actividades</div><div class="value" id="statActivities">-</div></div>
+      <div class="card"><div class="label">Fases</div><div class="value" id="statPhases">-</div></div>
+      <div class="card"><div class="label">Responsables</div><div class="value" id="statOwners">-</div></div>
+      <div class="card"><div class="label">Horizonte</div><div class="value">2026–2030</div></div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div class="section-title">Roadmap estratégico</div>
+        <div class="section-sub"></div>
+      </div>
+
+      <div class="roadmap-wrap">
+        <div class="roadmap">
+          <div class="roadmap-grid">
+            <div class="roadmap-step">
+              <article class="roadmap-card roadmap-c1">
+                <div class="roadmap-top">
+                  <div class="roadmap-number">1</div>
+                  <div class="roadmap-icon">🎯</div>
+                </div>
+                <div class="roadmap-activity">Actualización y ajustes del PEI</div>
+              </article>
+              <div class="roadmap-arrow">→</div>
+            </div>
+
+            <div class="roadmap-step">
+              <article class="roadmap-card roadmap-c2">
+                <div class="roadmap-top">
+                  <div class="roadmap-number">2</div>
+                  <div class="roadmap-icon">🧩</div>
+                </div>
+                <div class="roadmap-activity">Actualización y ajustes de los Planes de Facultades</div>
+              </article>
+              <div class="roadmap-arrow">→</div>
+            </div>
+
+            <div class="roadmap-step">
+              <article class="roadmap-card roadmap-c3">
+                <div class="roadmap-top">
+                  <div class="roadmap-number">3</div>
+                  <div class="roadmap-icon">⚙️</div>
+                </div>
+                  <div class="roadmap-activity">Implementación</div>
+              </article>
+              <div class="roadmap-arrow">→</div>
+            </div>
+
+            <div class="roadmap-step">
+              <article class="roadmap-card roadmap-c4">
+                <div class="roadmap-top">
+                  <div class="roadmap-number">4</div>
+                  <div class="roadmap-icon">📊</div>
+                </div>
+                <div class="roadmap-activity">Seguimiento</div>
+              </article>
+              <div class="roadmap-arrow">→</div>
+            </div>
+
+            <div class="roadmap-step">
+              <article class="roadmap-card roadmap-c5">
+                <div class="roadmap-top">
+                  <div class="roadmap-number">5</div>
+                  <div class="roadmap-icon">🔎</div>
+                </div>
+                <div class="roadmap-activity">Evaluación intermedia</div>
+              </article>
+              <div class="roadmap-arrow">→</div>
+            </div>
+
+            <div class="roadmap-step last">
+              <article class="roadmap-card roadmap-c6">
+                <div class="roadmap-top">
+                  <div class="roadmap-number">6</div>
+                  <div class="roadmap-icon">🏁</div>
+                </div>
+                <div class="roadmap-activity">Cierre</div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+<section class="filters-top-card">
+  <div class="panel-head">
+    <div class="panel-title">Filtros y resumen</div>
+    <div class="panel-sub">Selecciona una fase o responsable para focalizar la presentación.</div>
+  </div>
+
+  <div class="filters-top">
+    <input id="searchInput" type="text" placeholder="Buscar actividad o responsable" />
+    <select id="ownerFilter">
+      <option value="">Todos los responsables</option>
+    </select>
+    <select id="phaseFilter">
+      <option value="">Todas las fases</option>
+    </select>
+    <button id="resetBtn">Limpiar filtros</button>
+  </div>
+
+  <div class="summary-inline">
+    <div class="summary-item">
+      <div class="k">Enfoque</div>
+      <div class="v">Vista ejecutiva de alto nivel</div>
+    </div>
+    <div class="summary-item">
+      <div class="k">Contenido visible</div>
+      <div class="v">Actividad + responsable + cronograma</div>
+    </div>
+    <div class="summary-item">
+      <div class="k">Uso recomendado</div>
+      <div class="v">Rectoría, comité y presentaciones</div>
+    </div>
+  </div>
+</section>
+
+<section class="mainpanel fullwidth-panel">
+  <div class="panel-head">
+    <div class="panel-title">Cronograma ejecutivo</div>
+    <div class="panel-sub">Desplaza horizontalmente para revisar el horizonte completo.</div>
+  </div>
+  <div class="table-wrap">
+    <table id="ganttTable">
+      <thead id="ganttHead"></thead>
+      <tbody id="ganttBody"></tbody>
+    </table>
+    <div class="empty" id="emptyState">No se encontraron resultados con los filtros aplicados.</div>
+  </div>
+</section>
+
+<style>
+  .filters-top-card,
+  .mainpanel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .filters-top-card {
+    margin-bottom: 14px;
+  }
+
+  .filters-top {
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 180px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .summary-inline {
+    padding: 0 18px 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .fullwidth-panel {
+    width: 100%;
+  }
+
+  .panel-head {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg,#fff 0%,#fbfcfe 100%);
+  }
+
+  .panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand);
+  }
+
+  .panel-sub {
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  input, select, button {
+    width: 100%;
+    border: 1px solid #d6dde8;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+  }
+
+  input:focus, select:focus {
+    border-color: #efb46b;
+    box-shadow: 0 0 0 4px rgba(217,119,6,.12);
+  }
+
+  button {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .summary-item {
+    border: 1px solid #eef1f5;
+    border-radius: 14px;
+    padding: 12px 14px;
+    background: #fbfcfe;
+  }
+
+  .summary-item .k {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .summary-item .v {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brand);
+  }
+
+  .table-wrap {
+    overflow: auto;
+    max-height: 72vh;
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 1500px;
+    width: max-content;
+    font-size: 12px;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--brand);
+    color: white;
+    padding: 12px 10px;
+    border-right: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  thead tr.months th {
+    background: #21446d;
+    font-size: 11px;
+    letter-spacing: .04em;
+  }
+
+  tbody td {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: white;
+    padding: 10px 12px;
+    vertical-align: middle;
+  }
+
+  tbody tr:hover td {
+    background: #fcfdff;
+  }
+
+  .phase-row td {
+    background: var(--phase) !important;
+    color: var(--phase-text);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .col-a {
+    min-width: 430px;
+    max-width: 430px;
+    text-align: left;
+  }
+
+  .col-b {
+    min-width: 260px;
+    max-width: 260px;
+    text-align: left;
+  }
+
+  .activity {
+    font-weight: 700;
+    color: #243247;
+    line-height: 1.35;
+  }
+
+  .owner-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #f7f8fb;
+    border: 1px solid #eceff4;
+    color: #445066;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .time-col {
+    min-width: 78px;
+    width: 78px;
+    padding: 0;
+    position: relative;
+    background: linear-gradient(180deg,#fff 0%,#fbfcfe 100%);
+  }
+
+  .year-end {
+    background: linear-gradient(180deg,#fff9f3 0%,#fff6ed 100%);
+  }
+
+  .bar-segment {
+    height: 22px;
+    margin: 10px 3px;
+    background: linear-gradient(135deg, #f4b26b 0%, #d97706 100%);
+    box-shadow: 0 4px 10px rgba(217,119,6,.18);
+  }
+
+  .bar-single {
+    border-radius: 999px;
+  }
+
+  .bar-start {
+    border-radius: 999px 0 0 999px;
+  }
+
+  .bar-middle {
+    border-radius: 0;
+  }
+
+  .bar-end {
+    border-radius: 0 999px 999px 0;
+  }
+
+  .empty {
+    display: none;
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+  }
+
+  @media (max-width: 1200px) {
+    .filters-top {
+      grid-template-columns: 1fr;
+    }
+
+    .summary-inline {
+      grid-template-columns: 1fr;
+    }
+
+    .col-a {
+      min-width: 320px;
+      max-width: 320px;
+    }
+
+    .col-b {
+      min-width: 220px;
+      max-width: 220px;
+    }
+
+    .time-col {
+      min-width: 68px;
+      width: 68px;
+    }
+  }
+</style>
+
+<script>
+  const timeline = ["MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEPT", "OCT", "NOV", "DIC", "2027", "2028", "2029", "2030"];
+
+  const rows = [
+    {"isPhase": true, "phase": "1.- ACTUALIZACIÓN Y AJUSTES DEL PEI INSTITUCIONAL"},
+    {"isPhase": false, "task": "Levantamiento de información para las facultades", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "X", "X", "", "", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Preparación del kit planificación institucional", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "X", "X", "X", "", "", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Definir metodología de trabajo DGD", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "X", "X", "X", "", "", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Validación y ajuste de indicadores y metas institucionales", "owners": "Comité de Rectoría Ampliado", "marks": ["", "X", "X", "X", "", "", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Validación PEI 2030 con indicadores y metas", "owners": "Consejo Académico", "marks": ["", "", "", "X", "", "", "", "", "", "", "", "", "", ""]},
+
+    {"isPhase": true, "phase": "2.- ACTUALIZACIÓN Y AJUSTES DE LOS PLANES DE FACULTAD"},
+    {"isPhase": false, "task": "Presentación de metodología de trabajo con las facultades", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "X", "", "", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Taller N° 1 plan de facultad", "owners": "Consejo de Facultad", "marks": ["", "", "", "", "X", "X", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Trabajo interno de facultad", "owners": "Decanatura", "marks": ["", "", "", "", "X", "X", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Taller N° 2 plan de facultad", "owners": "Consejo de Facultad", "marks": ["", "", "", "", "X", "X", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Formulación Técnica del Plan de Facultad", "owners": "Comité Técnico de Facultad / Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "X", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Valorización Preliminar del Plan de Facultad", "owners": "Dirección Administrativa Facultad / VRAF", "marks": ["", "", "", "", "", "X", "", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Validación de la propuesta de Plan de Facultad", "owners": "Consejo de Facultad", "marks": ["", "", "", "", "", "", "X", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Análisis agregado de las propuestas de planes de facultad", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "X", "X", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Factibilidad técnica y económica del Plan de Facultad", "owners": "Vicerrectoría de Administración y Finanzas / Dirección de Gestión y Desarrollo / Comité técnico de facultad", "marks": ["", "", "", "", "", "", "X", "X", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Validación y ajuste de Plan de Facultad", "owners": "DGD - CAE - Decanatura / Vicerrectoría de Administración y Finanzas", "marks": ["", "", "", "", "", "", "X", "", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Consolidación de observaciones y ajuste final de planes de facultad", "owners": "Comité de Rectoría Ampliado", "marks": ["", "", "", "", "", "", "", "X", "", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Validación Institucional de los Planes de Facultad", "owners": "Consejo Académico", "marks": ["", "", "", "", "", "", "", "", "X", "", "", "", "", ""]},
+    {"isPhase": false, "task": "Validación del Directorio", "owners": "Directorio", "marks": ["", "", "", "", "", "", "", "", "X", "", "", "", "", ""]},   
+    {"isPhase": false, "task": "Presentación del PEI Institucional y Planes de Facultad", "owners": "Consejo Académico", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "", "", ""]},
+    {"isPhase": false, "task": "Difusión del PEI Institucional y Planes de Facultad", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "", "", ""]},
+
+    {"isPhase": true, "phase": "3.- IMPLEMENTACIÓN Y SEGUIMIENTO"},
+    {"isPhase": false, "task": "Implementación de las lineas de acción intitucionales y de facultades", "owners": "Facultad / Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Seguimiento de avances de las lineas de acción", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Seguimiento de indicadores intermedios", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Presentar avances del PEI y planes de facultad", "owners": "Coordinación Académica Estratégica", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Presentar avances del PEI y planes de facultad", "owners": "Consejo de Facultad", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Presentar avances del PEI y planes de facultad", "owners": "Comité de Rectoría Ampliado", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Seguimiento de indicadores estratégicos", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Presentar resultado anual del avance de la estrategia", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X"]},
+    {"isPhase": false, "task": "Evaluación intermedia 2028", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "", "X", "", ""]},
+    {"isPhase": false, "task": "Ajustes a la estrategia", "owners": "Comité de Rectoría Ampliado", "marks": ["", "", "", "", "", "", "", "", "", "", "", "X", "", ""]},
+    {"isPhase": false, "task": "Cierre del PEI UAH 2030", "owners": "Dirección de Gestión y Desarrollo", "marks": ["", "", "", "", "", "", "", "", "", "", "", "", "", "X"]}
+  ];
+
+  const activities = rows.filter(r => !r.isPhase);
+  const owners = [...new Set(activities.map(r => r.owners).filter(Boolean))].sort();
+
+  const phaseCounts = {};
+  let currentPhaseForCount = "";
+  rows.forEach(r => {
+    if (r.isPhase) {
+      currentPhaseForCount = r.phase;
+      if (!phaseCounts[currentPhaseForCount]) phaseCounts[currentPhaseForCount] = 0;
+    } else if (currentPhaseForCount) {
+      phaseCounts[currentPhaseForCount] += 1;
+    }
+  });
+
+  document.getElementById('statActivities').textContent = activities.length;
+  document.getElementById('statPhases').textContent = rows.filter(r => r.isPhase).length;
+  document.getElementById('statOwners').textContent = owners.length;
+
+  const searchInput = document.getElementById('searchInput');
+  const ownerFilter = document.getElementById('ownerFilter');
+  const phaseFilter = document.getElementById('phaseFilter');
+  const resetBtn = document.getElementById('resetBtn');
+  const ganttHead = document.getElementById('ganttHead');
+  const ganttBody = document.getElementById('ganttBody');
+  const emptyState = document.getElementById('emptyState');
+
+  ownerFilter.innerHTML = '<option value="">Todos los responsables</option>';
+  phaseFilter.innerHTML = '<option value="">Todas las fases</option>';
+
+  owners.forEach(owner => {
+    const opt = document.createElement('option');
+    opt.value = owner;
+    opt.textContent = owner;
+    ownerFilter.appendChild(opt);
+  });
+
+  Object.keys(phaseCounts).forEach(phase => {
+    const opt = document.createElement('option');
+    opt.value = phase;
+    opt.textContent = `${phase} (${phaseCounts[phase]})`;
+    phaseFilter.appendChild(opt);
+  });
+
+  function buildHead() {
+    ganttHead.innerHTML = '';
+
+    const tr1 = document.createElement('tr');
+    const tr2 = document.createElement('tr');
+    tr2.className = 'months';
+
+    const fixed = [
+      ['Actividad', 'col-a'],
+      ['Responsable', 'col-b'],
+    ];
+
+    fixed.forEach(([label, cls]) => {
+      const th = document.createElement('th');
+      th.rowSpan = 2;
+      th.className = cls;
+      th.textContent = label;
+      tr1.appendChild(th);
+    });
+
+    const yearGroups = [
+      ['2026', 10],
+      ['2027', 1],
+      ['2028', 1],
+      ['2029', 1],
+      ['2030', 1],
+    ];
+
+    yearGroups.forEach(([year, span]) => {
+      const th = document.createElement('th');
+      th.colSpan = span;
+      th.textContent = year;
+      tr1.appendChild(th);
+    });
+
+    timeline.forEach(label => {
+      const th = document.createElement('th');
+      th.textContent = label;
+      tr2.appendChild(th);
+    });
+
+    ganttHead.appendChild(tr1);
+    ganttHead.appendChild(tr2);
+  }
+
+  function getSegmentClass(marks, idx) {
+    const current = String(marks[idx] || '').toUpperCase() === 'X';
+    if (!current) return '';
+
+    const prev = idx > 0 && String(marks[idx - 1] || '').toUpperCase() === 'X';
+    const next = idx < marks.length - 1 && String(marks[idx + 1] || '').toUpperCase() === 'X';
+
+    if (!prev && !next) return 'bar-single';
+    if (!prev && next) return 'bar-start';
+    if (prev && next) return 'bar-middle';
+    if (prev && !next) return 'bar-end';
+    return '';
+  }
+
+  function getFilteredRows() {
+    const q = searchInput.value.trim().toLowerCase();
+    const owner = ownerFilter.value;
+    const phaseSelected = phaseFilter.value;
+
+    const result = [];
+    let currentPhase = null;
+    let phaseBuffer = [];
+
+    function flushPhase() {
+      if (currentPhase && phaseBuffer.length) {
+        result.push(currentPhase, ...phaseBuffer);
+      }
+    }
+
+    rows.forEach(row => {
+      if (row.isPhase) {
+        flushPhase();
+        currentPhase = row;
+        phaseBuffer = [];
+        return;
+      }
+
+      const text = `${row.task} ${row.owners}`.toLowerCase();
+      const okSearch = !q || text.includes(q);
+      const okOwner = !owner || row.owners === owner;
+      const okPhase = !phaseSelected || currentPhase?.phase === phaseSelected;
+
+      if (okSearch && okOwner && okPhase) {
+        phaseBuffer.push(row);
+      }
+    });
+
+    flushPhase();
+    return result;
+  }
+
+  function render() {
+    buildHead();
+    ganttBody.innerHTML = '';
+
+    const filtered = getFilteredRows();
+
+    if (!filtered.length) {
+      emptyState.style.display = 'block';
+      return;
+    }
+
+    emptyState.style.display = 'none';
+
+    filtered.forEach(row => {
+      if (row.isPhase) {
+        const tr = document.createElement('tr');
+        tr.className = 'phase-row';
+
+        const td = document.createElement('td');
+        td.colSpan = 16;
+        td.textContent = row.phase;
+
+        tr.appendChild(td);
+        ganttBody.appendChild(tr);
+        return;
+      }
+
+      const tr = document.createElement('tr');
+
+      const tdActivity = document.createElement('td');
+      tdActivity.className = 'col-a';
+      tdActivity.innerHTML = `<div class="activity">${row.task || '-'}</div>`;
+      tr.appendChild(tdActivity);
+
+      const tdOwner = document.createElement('td');
+      tdOwner.className = 'col-b';
+      tdOwner.innerHTML = `<span class="owner-chip">${row.owners || '-'}</span>`;
+      tr.appendChild(tdOwner);
+
+      row.marks.forEach((mark, idx) => {
+        const td = document.createElement('td');
+        td.className = 'time-col' + (idx >= 10 ? ' year-end' : '');
+
+        const segmentClass = getSegmentClass(row.marks, idx);
+        if (segmentClass) {
+          const bar = document.createElement('div');
+          bar.className = `bar-segment ${segmentClass}`;
+          td.appendChild(bar);
+        }
+
+        tr.appendChild(td);
+      });
+
+      ganttBody.appendChild(tr);
+    });
+  }
+
+  searchInput.addEventListener('input', render);
+  ownerFilter.addEventListener('change', render);
+  phaseFilter.addEventListener('change', render);
+  resetBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    ownerFilter.value = '';
+    phaseFilter.value = '';
+    render();
+  });
+
+  render();
 </script>
-</body>
-</html>
